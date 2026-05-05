@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LOGÍSTICA</title>
+    <link rel="stylesheet" href="../static/styles.css" />
+    <!-- Bootstrap Icons-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- Bootstrap Icons-->   
+  </head>
+
+  <body id="body">
+    <div class="interface">
+      <header>
+        <div class="display_logo">
+          <a href="/">
+            <img src="../static/logo.png" alt="Logo" class="logo" />
+            <h1>LOGÍSTICA</h1>
+          </a>
+        </div>
+        <button class="addItem" id="toggleSidebarBtn">Buscar Produto/Serviço</button>
+      </header>
+
+      <div class="cad">
+        <section id="products">
+          <h2>Carrinho<br /></h2>
+          <h3>Cliente: {{ cli_nome }}</h3>
+
+          <table id="cart_lista" class="cart-table">
+            <thead>
+              <tr>
+                <th class="item">Item</th>
+                <th class="item">Nome</th>
+                <th class="item">Descrição</th>
+                <th class="item">Preço</th>
+                <th class="item">Quantidade</th>
+                <th class="item">Excluir</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                  {% for item in row %}
+                    <td class="spec"><p>{{ item }}</p></td>
+                  {% endfor %}
+                    <td class="spec"><input class="ct-input" type="number" step="1"></td>
+                    <td class="spec">
+                      <form method="POST" action="/dlt_item_cart">
+                        <input type="hidden" name="codigo" value="{{ row[1] }}">
+                        <button type="submit" class="delete-btn"><p>X</p></button>
+                      </form>                    
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tr>
+            </tbody>
+          </table>
+          <button onclick="finalizarVenda()" class="addItem">Finalizar Venda</button>
+        </section>
+      </div>
+    </div>
+    
+    <div class="sidebar" id="sidebar">
+      <button class="close-btn">X</button>
+      <div class="busca-cart"><h2>Buscar</h2>
+
+      <select id="tipoItem" class="select_prdsrv">
+        <option value="produto">Produto</option>
+        <option value="servico">Serviço</option>
+      </select></div>
+
+      <input type="text" id="buscaTexto" placeholder="Digite o nome ou código" />
+      <button onclick="buscarItem()" class="buscar-item">Buscar</button>
+
+      <div id="resultadoBusca">
+        <!-- Resultados de busca aparecerão aqui -->
+      </div>
+
+      <button id="lupa" class="lupa">
+            <i class="bi bi-search"></i>
+      </button>
+
+      <div class="table_container">
+        <table class="display_table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>NOME</th>
+              <th>DESCRIÇÃO</th>
+              <th>ADD</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Preenchido dinamicamente por buscarItem() -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="overlay" class="overlay"></div>
+
+    {% if alert %}
+      <script class="alert">
+          alert("{{ alert }}");
+      </script>
+    {% endif %}
+    <script src="../static/carrinho.js"></script>
+  </body>
+</html>

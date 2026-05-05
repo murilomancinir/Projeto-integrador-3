@@ -1,0 +1,180 @@
+
+
+.clients-layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 30px;
+  align-items: stretch;
+
+
+}
+
+/*cards do cadastro*/
+.clients-form-card,
+.clients-list-card {
+  background: #ffffff;
+  border: 1px solid #dbe3ee;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(20, 35, 80, 0.06);
+}
+
+.clients-form-card {
+  padding: 22px;
+}
+
+.clients-list-card {
+  padding: 22px;
+  min-height: 400px;
+}
+
+.card-title-row {
+  margin-bottom: 18px;
+  
+}
+
+.card-title-row h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1d2b4f;
+
+  
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.clients-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.clients-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+.clients-table thead th {
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #66738d;
+  padding: 12px 14px;
+  border-bottom: 1px solid #e6ebf3;
+}
+
+.clients-table tbody td {
+  padding: 18px 14px;
+  font-size: 0.96rem;
+  color: #1d2b4f;
+  border-bottom: 1px solid #f0f3f8;
+}
+
+.clients-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.th-action,
+.td-action {
+  width: 56px;
+  text-align: center;
+}
+
+
+
+.delete-icon-btn:hover {
+  transform: scale(1.28);
+  opacity: 0.85;
+}
+
+.clients-empty {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #6b7690;
+}
+
+.clients-empty .empty-icon {
+  font-size: 2.8rem;
+  margin-bottom: 12px;
+  opacity: 0.7;
+}
+
+.clients-empty h3 {
+  font-size: 1.25rem;
+  color: #1d2b4f;
+  margin-bottom: 8px;
+}
+
+.footer-simple {
+  border-top: 1px solid #e6ebf3;
+  padding: 20px 0 28px;
+  text-align: center;
+  color: #7a859d;
+  font-size: 0.92rem;
+  background: #ffffff;
+}
+
+/* dropdown simples */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 170px;
+  background: #ffffff;
+  border: 1px solid #e6ebf3;
+  border-radius: 14px;
+  box-shadow: 0 14px 30px rgba(17, 35, 77, 0.10);
+  padding: 8px;
+  display: none;
+  z-index: 30;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: #1d2b4f;
+  font-size: 0.95rem;
+}
+
+.dropdown-menu a:hover {
+  background: #f5f7fb;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .clients-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .clients-form-card,
+  .clients-list-card {
+    padding: 18px;
+  }
+
+  .form-header h1 {
+    font-size: 2rem;
+  }
+}

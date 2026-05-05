@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minhas Viagens - RotaFácil</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body class="page-soft">
+
+  <header class="topbar">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand">
+        <span class="brand-icon">📍</span>
+        <span>RotaFácil</span>
+      </a>
+
+      <nav class="menu">
+        <a href="index.html">Início</a>
+        <a class="active" href="#">Minhas Viagens</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="page-header-row">
+        <div class="section-title">
+          <h1>Minhas Viagens</h1>
+          <p>Gerencie e visualize todas as suas rotas cadastradas</p>
+        </div>
+
+        <button class="btn btn-primary">+ Nova Viagem</button>
+      </div>
+
+      <div id="emptyState" class="empty-state">
+        <div class="empty-icon">📍</div>
+        <h2>Nenhuma viagem cadastrada</h2>
+        <p>Comece cadastrando sua primeira viagem para acompanhar custos e rotas</p>
+        <button class="btn btn-primary">+ Cadastrar Primeira Viagem</button>
+      </div>
+
+      <div id="tripList" class="trip-list" style="display: none;">
+        <div class="trip-card">
+          <div class="trip-card-top">
+            <div>
+              <h3>📍 teste → teste</h3>
+              <p>17 de março de 2026</p>
+            </div>
+
+            <div class="trip-actions">
+              <button class="btn btn-secondary btn-small">Ver Detalhes</button>
+              <button class="delete-btn">🗑</button>
+            </div>
+          </div>
+
+          <div class="trip-metrics">
+            <div class="metric-box">
+              <span>Distância</span>
+              <strong>10 km</strong>
+            </div>
+
+            <div class="metric-box">
+              <span>Consumo</span>
+              <strong>10 km/l</strong>
+            </div>
+
+            <div class="metric-box">
+              <span>Combustível</span>
+              <strong>R$ 10/l</strong>
+            </div>
+
+            <div class="metric-box metric-highlight">
+              <span>Custo Total</span>
+              <strong>R$ 20.00</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const viagens = [
+      {
+        origem: "teste",
+        destino: "teste",
+        data: "17 de março de 2026",
+        distancia: "10 km",
+        consumo: "10 km/l",
+        combustivel: "R$ 10/l",
+        custoTotal: "R$ 20.00"
+      }
+    ];
+
+    const emptyState = document.getElementById("emptyState");
+    const tripList = document.getElementById("tripList");
+
+    if (viagens.length === 0) {
+      emptyState.style.display = "flex";
+      tripList.style.display = "none";
+    } else {
+      emptyState.style.display = "none";
+      tripList.style.display = "grid";
+    }
+  </script>
+
+</body>
+</html>

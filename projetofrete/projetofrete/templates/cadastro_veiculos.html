@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Veiculos - Logística</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/base.css">
+  <link rel="stylesheet" href="../static/css/layout.css">
+  <link rel="stylesheet" href="../static/css/components.css">
+  <link rel="stylesheet" href="../static/css/pages/form.css">
+  <link rel="stylesheet" href="../static/css/pages/cadastros.css">
+
+</head>
+<body class="page-soft">
+
+  <header class="topbar">
+    <div class="container">
+      <a href="/" class="brand" aria-label="Logística">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 21s-6-5.2-6-11a6 6 0 1 1 12 0c0 5.8-6 11-6 11Z"></path>
+          <circle cx="12" cy="10" r="2.2"></circle>
+        </svg>
+        <span>Logistica</span>
+      </a>
+
+      <nav class="menu">
+        <a href="/">Início</a>
+
+        <div class="dropdown">
+          <a class="active dropdown-toggle" href="#">
+            Cadastros
+            
+          </a>
+
+          <div class="dropdown-menu">
+            <a href="{{ url_for('cliente.tela_clientes') }}">Clientes</a>
+            <a href="{{ url_for('veiculo.tela_veiculos') }}">Veículo</a>
+            <a href ="{{ url_for('motorista.tela_motoristas') }}">Motorista</a>
+          </div>
+        </div>
+
+        <a href="/consulta_servicos">Serviços</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section form-page">
+    <div class="container">
+      <div class="form-header">
+        <h1>Cadastro de Veículos</h1>
+       
+      </div>
+
+      <div class="clients-layout">
+        <section class="clients-form-card">
+          <div class="card-title-row">
+            <h2>+ Novo Veículo</h2>
+          </div>
+
+          <form action="/add_veiculo" method="POST">
+            <div class="form-group">
+              <label for="placa">Placa</label>
+              <input name="placa" type="text"  id="placa" placeholder="Ex: ABC-123">
+            </div>
+
+            <div class="form-group">
+              <label for="modelo">Modelo</label>
+              <input name="modelo" type="text" id="modelo" placeholder="Ex: Fiorino">
+            </div>
+
+            <div class="form-group">
+              <label for="marca">Marca</label>
+              <input name="marca"  type="text" id="marca" placeholder="Ex: Fiat">
+            </div>
+
+            <div class="form-group">
+              <label for="consumo">Consumo Médio</label>
+              <input name="consumo" type="number" step="0.01" id="consumo" placeholder="Ex: 5.50">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">
+              Salvar Veículo
+            </button>
+          </form>
+        </section>
+
+        <section class="clients-list-card">
+          <div class="card-title-row">
+            <h2>Veículos Cadastrados</h2>
+          </div>
+
+          <div class="clients-table-wrap">
+            <table class="clients-table">
+              <thead>
+                <tr>
+                  <th>Placa</th>
+                  <th>Modelo</th>
+                  <th>Marca</th>
+                  <th>Consumo Médio</th>
+                  <th class="th-action"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% if veiculos %}
+                  {% for veiculo in veiculos %}
+                  <tr>
+                    <td>{{ veiculo.placa }}</td>
+                    <td>{{ veiculo.modelo }}</td>
+                    <td>{{ veiculo.marca }}</td>
+                    <td>{{ veiculo.consumo }}</td>
+                    <td class="td-action">
+                      <form action="/dlt_veiculo" method="POST" style="display: inline;"> 
+                        <input type="hidden" name="codigo" value="{{veiculo.id_veiculo}}">
+                        <button class="delete-btn" type="submit" aria-label="Excluir veiculo">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                            <path d="M3 6h18"></path>
+                            <path d="M8 6V4h8v2"></path>
+                            <path d="M19 6l-1 14H6L5 6"></path>
+                            <path d="M10 11v6"></path>
+                            <path d="M14 11v6"></path>
+                          </svg>
+                        </button>
+                      </form>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                {% endif %}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="clients-empty" style="display: none;">
+            <div class="empty-icon"></div>
+            <h3>Nenhum veículo cadastrado</h3>
+            <p>Cadastre seu primeiro veículo para começar a organizar suas viagens.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer-simple">
+    <div class="container">
+      <p>© 2026 Logística.</p>
+    </div>
+  </footer>
+
+
+</body>
+</html>
