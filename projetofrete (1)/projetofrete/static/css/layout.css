@@ -1,0 +1,107 @@
+/*Estrutura Fixa*/
+.topbar {
+  height: 72px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255,255,255,0.8);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(10px);
+}
+
+.section {
+  padding: 64px 0;
+}
+
+body.page-soft {
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.container {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.topbar .container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #24324f;
+}
+
+.brand svg {
+  width: 28px;
+  height: 28px;
+  color: var(--primary);
+}
+
+footer {
+  padding: 28px 0 40px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.footer-simple {
+  border-top: 1px solid #e6ebf3;
+  padding: 20px 0 28px;
+  text-align: center;
+  color: #7a859d;
+  font-size: 0.92rem;
+  background: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: 68vh;
+  }
+
+  .hero h1 {
+    max-width: 700px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    height: auto;
+  }
+
+  .topbar .container {
+    padding: 14px 0;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .brand {
+    font-size: 1.5rem;
+  }
+
+  .menu {
+    gap: 18px;
+    font-size: 0.92rem;
+  }
+
+  .section {
+    padding: 52px 0;
+  }
+
+  .card {
+    min-height: auto;
+  }
+}

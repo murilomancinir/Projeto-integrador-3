@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vendas - LOGÍSTICA</title>
+    <link rel="stylesheet" href="../static/styles.css" />
+    <script src="../static/vendas.js"></script>
+  </head>
+
+  <body>
+    <div class="interface">
+      <header>
+        <div class="display_logo">
+          <a href="/">
+            <img src="../static/logo.png" alt="Logo" class="logo" />
+            <h1>LOGÍSTICA</h1>
+          </a>
+        </div>
+
+        <nav>
+          <ul class="menu">
+            <li><a href="/vendas">VENDAS</a></li>
+            <li><a href="/cadastro_clientes">CADASTROS</a></li>
+          </ul>
+        </nav>
+      </header>
+
+        <div class = "cad">
+          <section id="cliente_select">
+            <h2>SELECIONE O CLIENTE PARA A VENDA</h2>
+          
+            <form class="formul" method="GET" action="/vendas/carrinho">
+              <input type="text" id="cpf" placeholder="CPF - sem pontos ou traços" oninput="buscarCliente()" />
+              <input type="hidden" name="cli_nome" value="">
+              <input type="hidden" name="cli_doc" value="">
+              <div id="resultadoCliente" class="prelect_cliente"></div>  
+              <button type="submit" class="addItem">Confirmar</button>
+            </form>
+          </section>
+        </div>
+
+        <div class="cad">
+          <section>
+            <h2>ÚLTIMAS VENDAS REALIZADAS</h2>
+          </section>
+        </div>
+    </div>
+  </body>
+</html>
