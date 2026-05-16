@@ -1,0 +1,17 @@
+.form-card {
+  max-width: 760px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 18px;
+  padding: 28px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group input {
+  height: 48px;
+  border-radius: 12px;
+}

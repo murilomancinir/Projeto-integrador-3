@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RotaFácil - Início</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="brand">
+                <span class="brand-icon">📍</span>
+                <span>RotaFácil</span>
+            </a>
+
+            <nav class="menu">
+                <a class="active" href="index.html">Início</a>
+                <a href="{{ url_for('viagens') }}">Minhas Viagens</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="inicio">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <h1>Planeje suas viagens e saiba quanto cobrar por cada rota</h1>
+                <p>
+                    Gerencie suas rotas, calcule custos e otimize seus ganhos como motorista
+                    profissional ou autônomo.
+                </p>
+                <a href="#cadastro" class="btn btn-primary">Cadastrar Nova Viagem</a>
+            </div>
+        </section>
+
+        <section class="features section">
+            <div class="container">
+                <h2 class="section-title">Funcionalidades</h2>
+
+                <div class="card-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🛣️</div>
+                        <h3>Cadastro de Rotas</h3>
+                        <p>
+                            Registre origem, destino e distância de cada viagem de forma simples e rápida.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">🧮</div>
+                        <h3>Cálculo de Custos</h3>
+                        <p>
+                            Informe consumo, preço do combustível e outras despesas para saber quanto vai gastar.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h3>Histórico Completo</h3>
+                        <p>
+</html>
