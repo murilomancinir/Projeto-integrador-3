@@ -1,1 +1,1 @@
-web: gunicorn projetofrete.app:app
+web: gunicorn app:app
