@@ -1,1 +1,1 @@
-web: gunicorn projetofrete.app.py
+gunicorn projetofrete:app
