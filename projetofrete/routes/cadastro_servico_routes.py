@@ -158,8 +158,7 @@ def tela_servicos():
             clientes=clientes,
             veiculos=veiculos,
             motoristas=motoristas,
-            alert="Viagem cadastrada com sucesso!",
-            alert_tipo="sucesso"
+
         )
     except Exception as e:
         return render_template(
@@ -247,7 +246,7 @@ def add_servico():
                     motoristas=carregar_motoristas(),
                     alert="Informe a distância manualmente ou desligue o modo manual"
                 )
-
+            
             distancia_km = float(distancia_km_informada)
 
             if distancia_km <= 0:
@@ -259,6 +258,7 @@ def add_servico():
                     alert="A distância deve ser maior que zero"
                 )
         else:
+            
             distancia_km = calcular_distancia(origem, destino)
 
             if distancia_km <= 0:
@@ -308,7 +308,12 @@ def add_servico():
         ))
 
         conn.commit()
-        return redirect(url_for('servico.tela_servicos'))
+        return render_template(
+            "cadastro_servicos.html",
+            alert="Serviço incluido com sucesso",
+            alert_tipo="sucesso",
+            servicos = tela_servicos()
+        )
 
     except ValueError:
         return render_template(

@@ -131,7 +131,10 @@ def dlt_veiculo():
             update veiculos set ATIVO = FALSE WHERE id_veiculo = %s
         """, (codigo,))
         conn.commit()
-        return redirect(url_for('veiculo.tela_veiculos'))
+        return render_template(
+            "cadastro_veiculos.html", alert="Veiculo excluido"
+            ,alert_tipo="sucesso", veiculo=buscar_veiculos()
+        )
     
 
     except Exception as e:

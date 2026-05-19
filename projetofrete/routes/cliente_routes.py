@@ -146,7 +146,7 @@ def dlt_cliente():
     
         conn.commit()
         return render_template(
-            "cadastro_clientes.html",alert="Cliente cadastrado com sucesso!",alert_tipo="sucesso", clientes=buscar_clientes()
+            "cadastro_clientes.html",alert="Cliente excluído com sucesso!",alert_tipo="sucesso", clientes=buscar_clientes()
         )
     
 

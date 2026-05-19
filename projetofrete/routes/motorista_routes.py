@@ -144,9 +144,10 @@ def dlt_motorista():
             UPDATE motoristas SET ativo = FALSE WHERE id_motorista = %s
         """, (codigo,))
         conn.commit()
+
         return render_template(
             "cadastro_motoristas.html",
-            alert="Motorista cadastrado com sucesso",
+            alert="Motorista excluido com sucesso",
             alert_tipo="sucesso",
             motoristas=buscar_motoristas()
         )

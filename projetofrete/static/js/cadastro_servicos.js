@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     campoDistancia.readOnly = true;
     campoDistancia.value = "";
-    btnCalcularDistancia.value = "0";
+    campoDistanciaManual.value = "0";
 
     btnCalcularDistancia.disabled = false;
   }
@@ -235,7 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   //========================================
-  // CHAMADA DA FUNCAO NO CLIQUE PARA CALCULAR DISTANCIA
+  // CALCULAR DISTANCIA MANUAL
   //========================================
 
   if (boxDistanciaManual){
